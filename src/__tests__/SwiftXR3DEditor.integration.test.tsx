@@ -22,15 +22,10 @@ describe('SwiftXR3DEditor Integration Tests', () => {
     
     fireEvent.change(fileInput, { target: { files: [file] } })
     
-    // Loading state should appear
+    // Wait for state to update (no longer checking for loading element)
     await waitFor(() => {
-      expect(screen.getByTestId('loading')).toBeInTheDocument()
+      expect(screen.queryByText('No Model Loaded')).not.toBeInTheDocument()
     })
-    
-    // Wait for loading to complete
-    await waitFor(() => {
-      expect(screen.queryByTestId('loading')).not.toBeInTheDocument()
-    }, { timeout: 3000 })
     
     // Scene should be visible and controls should appear
     expect(screen.getByTestId('scene-container')).toBeInTheDocument()

@@ -1,7 +1,7 @@
 // Performance Tests
 // src/__tests__/performance.test.tsx
-import { describe, it, expect, vi } from 'vitest'
-import type { Hotspot } from '../types'
+import { describe, it, expect } from 'vitest'
+// import type { Hotspot } from '../types'
 
 describe('Performance Tests', () => {
   it('should handle large number of hotspots efficiently', () => {

@@ -19,9 +19,16 @@ export const useModelLoader = () => {
     try {
       const url = URL.createObjectURL(file)
       setModelUrl(url)
-      setLoading(false)
+      // Don't set loading to false here - let Model component handle it
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to load model'
+      let errorMessage = 'Failed to load model'
+      if (error instanceof Error) {
+        if (error.message.includes('Legacy binary file')) {
+          errorMessage = 'This GLB file uses an older format (glTF 1.0). Please use a glTF 2.0 file.'
+        } else {
+          errorMessage = error.message
+        }
+      }
       setError(errorMessage)
       setLoading(false)
     }

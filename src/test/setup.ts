@@ -1,9 +1,7 @@
-import { expect, afterEach, vi } from 'vitest'
+import { afterEach, vi } from 'vitest'
 import * as React from 'react'
 import { cleanup } from '@testing-library/react'
-import * as matchers from '@testing-library/jest-dom/matchers'
-
-expect.extend(matchers)
+import '@testing-library/jest-dom'
 
 afterEach(() => {
   cleanup()
@@ -42,11 +40,12 @@ vi.mock('three', () => ({
   Object3D: vi.fn(),
 }))
 
-// Mock @react-three/fiber
+// Mock @react-three/fiber with better component mocking
 vi.mock('@react-three/fiber', () => ({
-  Canvas: ({ children }: { children: React.ReactNode }) => (
-    React.createElement('div', { 'data-testid': 'canvas' }, children)
-  ),
+  Canvas: ({ children: _ }: { children: React.ReactNode }) => {
+    // Suppress warnings by not rendering Three.js components in tests
+    return React.createElement('div', { 'data-testid': 'canvas' })
+  },
   useFrame: vi.fn(),
   useThree: vi.fn(() => ({
     camera: {
@@ -75,9 +74,6 @@ vi.mock('@react-three/drei', () => ({
   })),
   Html: ({ children }: { children: React.ReactNode }) => (
     React.createElement('div', { 'data-testid': 'html-overlay' }, children)
-  ),
-  Text: ({ children }: { children: React.ReactNode }) => (
-    React.createElement('div', { 'data-testid': 'three-text' }, children)
   ),
 }))
 

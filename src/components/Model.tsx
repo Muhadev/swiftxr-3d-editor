@@ -3,27 +3,27 @@ import { useGLTF } from '@react-three/drei'
 import { useSceneStore } from '../store/sceneStore'
 
 interface ModelProps {
-  url: string
+ url: string
 }
 
 export const Model: React.FC<ModelProps> = ({ url }) => {
-  const { scene } = useGLTF(url)
-  const { setModel, setLoading } = useSceneStore()
-  
-  React.useEffect(() => {
-    if (scene) {
-      setModel(scene)
-      setLoading(false)
-    }
-  }, [scene, setModel, setLoading])
+ const { scene } = useGLTF(url)
+ const { setModel, setLoading } = useSceneStore()
+ 
+ React.useEffect(() => {
+   if (scene) {
+     setModel(scene)
+     setLoading(false)
+   }
+ }, [scene])
 
-  React.useEffect(() => {
-    return () => {
-      if (url && url.startsWith('blob:')) {
-        URL.revokeObjectURL(url)
-      }
-    }
-  }, [url])
+ React.useEffect(() => {
+   return () => {
+     if (url && url.startsWith('blob:')) {
+       URL.revokeObjectURL(url)
+     }
+   }
+ }, [url])
 
-  return <primitive object={scene} />
+ return <primitive object={scene} />
 }

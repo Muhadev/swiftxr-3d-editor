@@ -17,7 +17,7 @@ interface SceneActions {
 
 export const useSceneStore = create<SceneState & SceneActions>()(
   devtools(
-    (set, get) => ({
+    (set) => ({
       // State
       model: null,
       hotspots: [],

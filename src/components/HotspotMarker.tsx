@@ -11,7 +11,7 @@ export const HotspotMarker: React.FC<HotspotMarkerProps> = ({
 }) => {
   const meshRef = useRef<THREE.Mesh>(null!)
   
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.5
     }
