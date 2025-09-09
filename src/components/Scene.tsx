@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { useSceneStore } from '../../store/sceneStore'
+import { useSceneStore } from '../store/sceneStore'
 import { useHotspots } from '../hooks/useHotspots'
 import { Model } from './Model'
 import { HotspotMarker } from './HotspotMarker'

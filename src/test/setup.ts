@@ -1,4 +1,5 @@
 import { expect, afterEach, vi } from 'vitest'
+import * as React from 'react'
 import { cleanup } from '@testing-library/react'
 import * as matchers from '@testing-library/jest-dom/matchers'
 
@@ -44,7 +45,7 @@ vi.mock('three', () => ({
 // Mock @react-three/fiber
 vi.mock('@react-three/fiber', () => ({
   Canvas: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="canvas">{children}</div>
+    React.createElement('div', { 'data-testid': 'canvas' }, children)
   ),
   useFrame: vi.fn(),
   useThree: vi.fn(() => ({
@@ -63,7 +64,7 @@ vi.mock('@react-three/fiber', () => ({
 
 // Mock @react-three/drei
 vi.mock('@react-three/drei', () => ({
-  OrbitControls: () => <div data-testid="orbit-controls" />,
+  OrbitControls: () => React.createElement('div', { 'data-testid': 'orbit-controls' }),
   useGLTF: vi.fn(() => ({
     scene: {
       clone: vi.fn(),
@@ -73,10 +74,10 @@ vi.mock('@react-three/drei', () => ({
     },
   })),
   Html: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="html-overlay">{children}</div>
+    React.createElement('div', { 'data-testid': 'html-overlay' }, children)
   ),
   Text: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="three-text">{children}</div>
+    React.createElement('div', { 'data-testid': 'three-text' }, children)
   ),
 }))
 

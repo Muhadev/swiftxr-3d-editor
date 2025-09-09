@@ -1,6 +1,6 @@
 import { FC, ChangeEvent } from 'react'
-import { useModelLoader } from '../../hooks/useModelLoader'
-import { useSceneStore } from '../../store/sceneStore'
+import { useModelLoader } from '../hooks/useModelLoader'
+import { useSceneStore } from '../store/sceneStore'
 
 export const FileUpload: FC = () => {
   const { loadModel } = useModelLoader()

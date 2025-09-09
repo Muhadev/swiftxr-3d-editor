@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react'
 import { useThree } from '@react-three/fiber'
-import { useSceneStore } from '../../store/sceneStore'
+import { useSceneStore } from '../store/sceneStore'
 import { useHotspots } from '../hooks/useHotspots'
 
 export const SceneInteraction = () => {

@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { Vector3 } from 'three'
-import { useSceneStore } from '../../store/sceneStore'
+import { useSceneStore } from '../store/sceneStore'
 import type { Vector3D, Hotspot } from '../types'
 import * as THREE from 'three'
 

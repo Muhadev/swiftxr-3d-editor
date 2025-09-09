@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useSceneStore } from '../../store/sceneStore'
+import { useSceneStore } from '../store/sceneStore'
 
 interface ModelProps {
   url: string

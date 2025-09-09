@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useSceneStore } from '../../store/sceneStore'
+import { useSceneStore } from '../store/sceneStore'
 
 export const useModelLoader = () => {
   const { setModelUrl, setLoading, setError, clearScene } = useSceneStore()

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useHotspots } from '../../hooks/useHotspots'
+import { useHotspots } from '../hooks/useHotspots'
 
 export const HotspotPanel: React.FC = () => {
   const { hotspots, selectedHotspot, removeHotspot, selectHotspot, editHotspotLabel } = useHotspots()
