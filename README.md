@@ -2,10 +2,10 @@
 
 A powerful React-based 3D model viewer and hotspot editor built with Three.js that allows users to import GLB models, explore them in 3D space, and add interactive hotspots for labeling and annotation.
 
-![SwiftXR 3D Editor - Box Model Example](/public/assets/example1.png)
+![SwiftXR 3D Editor - Box Model Example](../swiftxr-3d-editor/public/assests/example1.png)
 *Simple box model with hotspots for demonstration*
 
-![SwiftXR 3D Editor - Duck Model Example](/public/assets/example2.png)
+![SwiftXR 3D Editor - Duck Model Example](../swiftxr-3d-editor/public/assests/example2.png)
 *Duck model showcasing complex 3D geometry with interactive hotspots*
 
 ## Quick Start (No Technical Knowledge Required!)
