@@ -19,7 +19,6 @@ export const useModelLoader = () => {
     try {
       const url = URL.createObjectURL(file)
       setModelUrl(url)
-      // Don't set loading to false here - let Model component handle it
     } catch (error) {
       let errorMessage = 'Failed to load model'
       if (error instanceof Error) {
